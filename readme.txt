@@ -1,26 +1,14 @@
-I made a quick & dirty script to save the messages/conversations' pages to html files. it works from my mac ok. (a lot of it is comments, you could remove those lines)one day (likely never get round to it) could extract just the message field. you can move the html files to a directory and search if needed. as I said, it's not pretty but does save the text off at least. and runs pretty quick. I'm sure someone here could make improvements
+there's a couple of scripts:
 
-to run it, 
-- goto your yahoogroup page, note the last message id for latest message: eg one of my group's has 116 msgs- save the script into a .sh file & make it executable (ie chmod +x yahoogroupssave.sh)
-- run the script from terminal: ./yahoogroupssave.sh <group-name> <last-message-number>
-eg: for one of my groups, group-name=brizbeats & last-message-number=116
-https://groups.yahoo.com/neo/groups/brizbeats/conversations/messages/116so run the script like this: ./yahoogroupssave.sh brizbeats 116
-for yahoogroups group run it like this (79638 is last message I see atm but this email would +1 it to 79639):./yahoogroupssave.sh videoblogging 79638
+yhgapi-singlejson.sh = a shell script to use yahoo groups api to create individual json files for each post, then merge them all into a text file under headings: "Date" "PostId" "AuthorName" "MessageBody". this works for public and private yahoo groups.
 
-edit the script file yahoogroupssave.sh & add the commands below :
+yahoogroupssave.sh = a shell script to curl / save each yahoo groups conversations page into a html file. it only works for yahoo groups that have messages/conversations open for all to read. ie it doesn't work for private groups as I haven't added authentication to the curl command
 
-#/bin/bash
-groupname=$1
-total=$2
-datestamp="$(date +"%Y-%m-%d")"
-filename="yahoogroup-"$groupname"-"$datestamp"-.html"
-for (( i=1; i <= $total; i++ ))
-do
-#  echo "date = "$datestamp
-#  echo "page number = $i"
-  filename="yahoogroup-$groupname-$datestamp-$i.html"
-  yahoogroupurl="https://groups.yahoo.com/neo/groups/"$groupname"/conversations/messages/$i"
-  echo "saving yahoo group $groupname conversation page number: $i -- url: $yahoogroupurl into $filename"
-  ###curl -sS $yahoogroupurl > $filename
-  curl ${yahoogroupurl} -sS -o $filename
-done
+to run either scripts
+- download the .sh files & set to executable (chmod +x <scriptfilename.sh)
+- goto your yahoo groups page, note the last message id for latest message (or for however many you want to save): eg one of my group's has 116 msgs
+- run the script from terminal: ./<script-filenanme>.sh <group-name> <last-message-number>
+eg: for one of my yahoogroups groups, group-name=brizbeats & last-message-number=116 (https://groups.yahoo.com/neo/groups/brizbeats)
+run the script/s like this: 
+./yahoogroupssave.sh brizbeats 116
+./yhgapi-singlejson.sh brizbeats 116
