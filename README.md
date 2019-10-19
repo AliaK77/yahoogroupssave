@@ -13,6 +13,6 @@ to run either scripts
 - run the script from terminal: ./(script-filenanme).sh (group-name) (last-message-number)
 eg: for one of my yahoogroups groups, group-name=brizbeats & last-message-number=116 (https://groups.yahoo.com/neo/groups/brizbeats)
 run the script/s like this: 
-./yahoogroupssave.sh brizbeats 116
-./yhgapi-singlejson.sh brizbeats 116
+- prompt$ ./yahoogroupssave.sh brizbeats 116
+- prompt$ ./yhgapi-singlejson.sh brizbeats 116
 
