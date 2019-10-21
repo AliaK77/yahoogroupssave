@@ -3,7 +3,8 @@ groupname=$1
 first=$2
 total=$3
 datestamp="$(date +"%Y-%m-%d")"
-txtfilename="yahoogroup-"$groupname"-"$datestamp".txt"
+datetimestamp="$(date +"%Y-%m-%d-%H%M")"
+txtfilename="yahoogroup-"$groupname"-"$datetimestamp".txt"
 
 # print field headings
 echo "\"Date\" \"PostId\" \"AuthorName\" \"MessageBody\" " > $txtfilename
