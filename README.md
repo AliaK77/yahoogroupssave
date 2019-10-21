@@ -3,9 +3,9 @@ save messages from yahoo groups as html or json files
 
 there's a couple of scripts:
 
-- yhgapi-save-to-json.sh = a shell script to use yahoo groups api to create individual json files for each post, then merge them all into a text file under headings: "Date" "PostId" "AuthorName" "MessageBody". this works for public and private yahoo groups.
+- yhgapi-save-to-json.sh = a shell script to use yahoo groups api to create individual json files for each post, then merge them all into a text file under headings: "Date" "PostId" "AuthorName" "MessageBody". this works for public and private yahoo groups. can specify first & last msg now too to do in batches. & the json version now skips the messages that don't exist
 
-- yhg-save-to-html.sh = a shell script to curl / save each yahoo groups conversations page into a html file. it only works for yahoo groups that have messages/conversations open for all to read. ie it doesn't work for private groups as I haven't added authentication to the curl command
+- yhg-save-to-html.sh = a shell script to curl / save each yahoo groups conversations page into a html file. it only works for yahoo groups that have messages/conversations open for all to read. ie it doesn't work for private groups as I haven't added authentication to the curl command. can specify first & last msg now too to do in batches.
 
 to run either scripts
 - download the .sh files & set to executable using chmod +x (scriptfilename).sh
